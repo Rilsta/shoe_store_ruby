@@ -1,3 +1,9 @@
 <h1>Store List</h1>
 
+<ul>
+  <% @stores.each do |store| %>
+  <li><%= store.store_name %></li>
+  <% end %>
+</ul>
+
 <a href="/stores/new">Add a New Store</a>
