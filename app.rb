@@ -4,9 +4,13 @@ Bundler.require(:default)
 
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
+##Homepage->
+
 get('/') do
   erb(:index)
 end
+
+##adding a shoe store->
 
 get('/stores') do
   @stores = Store.all
@@ -23,6 +27,8 @@ post('/stores') do
   redirect ('/stores')
 end
 
+##edit shoe store information->
+
 get('/stores/:id/edit') do
   @store = Store.find(params.fetch("id"))
   erb(:edit_store)
@@ -36,11 +42,15 @@ patch('/stores/:id') do
   erb(:stores)
 end
 
+##remove a store->
+
 delete('/stores/:id/delete') do
   @store = Store.find(params.fetch("id"))
   @store.destroy
   redirect('/stores')
 end
+
+##adding shoe brands to a specific shoe store->
 
 get('/stores/:id') do
   @store = Store.find(params.fetch("id"))
