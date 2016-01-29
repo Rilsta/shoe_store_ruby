@@ -33,5 +33,19 @@ end
 
 get('/stores/:id') do
   @store = Store.find(params.fetch("id"))
+  @brands = Brand.all
+  erb(:store)
+end
+
+get('/stores/:id/brands/new') do
+  @store = Store.find(params.fetch("id"))
+  erb(:brand_form)
+end
+
+post('/stores/:id/brands') do
+  brand_name = params.fetch('brand_name')
+  @brand = Brand.create({brand_name: brand_name})
+  @store = Store.find(params.fetch("id"))
+  @store.brands.push(@brand)
   erb(:store)
 end
