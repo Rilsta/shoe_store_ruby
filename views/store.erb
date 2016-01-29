@@ -1,13 +1,14 @@
-<h1><%= @store.store_name %></h1>
-<a href="/">Home</a>
-<a href="/stores">Back</a>
+<div class="jumbotron">
+  <h2><%= @store.store_name %></h2>
+  <a class="btn btn-default btn" href="/stores/<%= @store.id %>/brands/new" role="button">Add a Shoe Brand</a>
+</div>
 
+<div class="container-fluid">
+  <h4>Available Brands:</h4>
 
-<ul>
-  <% @store.brands.each do |brand| %>
-  <li><%= brand.brand_name %></li>
-  <% end %>
-</ul>
-
-
-<a href="/stores/<%= @store.id %>/brands/new">Add a Shoe Brand</a>
+  <ul class="list-unstyled">
+    <% @store.brands.each do |brand| %>
+    <li><%= brand.brand_name %></li>
+    <% end %>
+  </ul>
+</div>
