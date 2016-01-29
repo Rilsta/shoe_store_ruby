@@ -29,14 +29,17 @@ get('/stores/:id/edit') do
 end
 
 patch('/stores/:id') do
+  @stores = Store.all
+  store_name = params.fetch('store_name')
   @store = Store.find(params.fetch("id"))
-  store_name = params.fetch("store_name")
   @store.update({store_name: store_name})
   erb(:stores)
 end
 
 delete('/stores/:id/delete') do
-  #Delete pathways here
+  # @store = Store.find(params.fetch("id"))
+  # @store.destroy
+  # redirect('/stores')
 end
 
 get('/stores/:id') do
