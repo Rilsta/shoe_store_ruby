@@ -22,3 +22,6 @@ post('/stores') do
   Store.create({store_name: store_name})
   redirect ('/stores')
 end
+
+patch('/stores/:id') do
+end
