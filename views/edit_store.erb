@@ -1,0 +1,7 @@
+<h1>Edit Store Name</h1>
+
+<form action="/stores/<%= @store.id %>" method="post">
+  <input type="hidden" name="_method" method="patch">
+  <input type="text" name="store_name" id="store_name" value="<%= @store.store_name %>">
+  <button type="submit" name="button">Save Changes</button>
+</form>

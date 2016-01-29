@@ -1,8 +1,13 @@
 <h1>Store List</h1>
 <a href="/">Home</a>
+
 <ul>
   <% @stores.each do |store| %>
-  <li><a href="/stores/<%= store.id %>"><%= store.store_name %></a></li>
+  <li>
+    <a href="/stores/<%= store.id %>"><%= store.store_name %></a>
+    <a href="/stores/<%= store.id %>/edit"><button>Edit</button></a>
+    <a href="/stores/<%= store.id %>/delete"><button>Remove</button></a>
+  </li>
   <% end %>
 </ul>
 

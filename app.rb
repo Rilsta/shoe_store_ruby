@@ -23,8 +23,16 @@ post('/stores') do
   redirect ('/stores')
 end
 
+get('/stores/:id/edit') do
+  @store = Store.find(params.fetch("id"))
+  erb(:edit_store)
+end
+
 patch('/stores/:id') do
-  #Patch pathways here
+  @store = Store.find(params.fetch("id"))
+  store_name = params.fetch("store_name")
+  @store.update({store_name: store_name})
+  erb(:stores)
 end
 
 delete('/stores/:id/delete') do
