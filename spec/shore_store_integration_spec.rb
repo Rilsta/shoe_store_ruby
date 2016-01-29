@@ -34,4 +34,14 @@ describe('Shoe store pathways', :type => :feature) do
     click_button('Save Changes')
     expect(page).to have_content('Shin Sprints')
   end
+
+  it('deletes a store from list') do
+    visit('/')
+    click_link('Store List')
+    click_link('Add a New Store')
+    fill_in('store_name', with: 'Shoeda Bought')
+    click_button('Add', :match => :first)
+    click_button('Remove')
+    expect(page).to have_no_content('Shoeda Bought')
+  end
 end
