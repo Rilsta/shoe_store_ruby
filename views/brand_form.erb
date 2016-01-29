@@ -1,6 +1,13 @@
-<h1>Add a New Shoe Brand!</h1>
+<div class="jumbotron">
+<h2>Add a New Shoe Brand!</h2>
+</div>
 
-<form action="/stores/<%= @store.id %>/brands" method="post">
-  <input type="text" name="brand_name" id="brand_name">
-  <button type="submit" name="button">Add</button>
+<div class="container-fluid">
+<form class="form-inline" action="/stores/<%= @store.id %>/brands" method="post">
+  <div class="form-group">
+    <label>Type here:</label>
+    <input class="form-control" type="text" name="brand_name" id="brand_name">
+    <button class="btn btn-default" type="submit" name="button">Add</button>
+  </div>
 </form>
+</div>

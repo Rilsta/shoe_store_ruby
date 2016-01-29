@@ -1,7 +1,13 @@
-<h1>Add a New Store!</h1>
+<div class="jumbotron">
+<h2>Add a New Store!</h2>
+</div>
 
-<a href="/">Home</a>
-<form action="/stores" method="post">
-  <input type="text" name="store_name" id="store_name">
-  <button type="submit" name="button">Add</button>
+<div class="container-fluid">
+<form class="form-inline" action="/stores" method="post">
+  <div class="form-group">
+    <label>Type here:</label>
+    <input class="form-control" type="text" name="store_name" id="store_name">
+    <button class="btn btn-default" type="submit" name="button">Add</button>
+  </div>
 </form>
+</div>
