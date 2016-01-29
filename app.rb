@@ -24,4 +24,14 @@ post('/stores') do
 end
 
 patch('/stores/:id') do
+  #Patch pathways here
+end
+
+delete('/stores/:id/delete') do
+  #Delete pathways here
+end
+
+get('/stores/:id') do
+  @store = Store.find(params.fetch("id"))
+  erb(:store)
 end

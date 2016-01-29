@@ -1,8 +1,8 @@
 <h1>Store List</h1>
-
+<a href="/">Home</a>
 <ul>
   <% @stores.each do |store| %>
-  <li><%= store.store_name %></li>
+  <li><a href="/stores/<%= store.id %>"><%= store.store_name %></a></li>
   <% end %>
 </ul>
 
