@@ -37,9 +37,9 @@ patch('/stores/:id') do
 end
 
 delete('/stores/:id/delete') do
-  # @store = Store.find(params.fetch("id"))
-  # @store.destroy
-  # redirect('/stores')
+  @store = Store.find(params.fetch("id"))
+  @store.destroy
+  redirect('/stores')
 end
 
 get('/stores/:id') do

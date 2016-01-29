@@ -4,9 +4,12 @@
 <ul>
   <% @stores.each do |store| %>
   <li>
-    <a href="/stores/<%= store.id %>"><%= store.store_name %></a>
+    <a href="/stores/<%= store.id %>"><h3><%= store.store_name %></h3></a>
     <a href="/stores/<%= store.id %>/edit"><button>Edit</button></a>
-    <a href="/stores/<%= store.id %>/delete"><button>Remove</button></a>
+    <form action="/stores/<%= store.id %>/delete" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" name="button">Remove</button>
+    </form>
   </li>
   <% end %>
 </ul>
