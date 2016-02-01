@@ -23,8 +23,12 @@ end
 
 post('/stores') do
   store_name = params.fetch('store_name')
-  Store.create({store_name: store_name})
-  redirect ('/stores')
+  new_store = Store.new({store_name: store_name})
+  if new_store.save()
+    redirect ('/stores')
+  else
+    redirect ('/error')
+  end
 end
 
 ##edit shoe store information->
@@ -65,7 +69,7 @@ end
 
 post('/stores/:id/brands') do
   brand_name = params.fetch('brand_name')
-  @brand = Brand.create({brand_name: brand_name})
+  @brand = Brand.find_or_create_by({brand_name: brand_name})
   @store = Store.find(params.fetch("id"))
   @store.brands.push(@brand)
   erb(:store)
